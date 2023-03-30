@@ -1,6 +1,7 @@
 import InputForm from './components/InputForm'
 import { useState } from 'react';
 import './App.css'
+import './globals.css'
 
 function App() {
   const [contracts, setContracts] = useState([])
@@ -24,7 +25,7 @@ const postContract = async obj => {
 
   return (
     <>
-    <h1>React App</h1>
+    <h1 className="title">AlgoRhythm Candidate Search</h1>
     <InputForm postContract={postContract} />
     </>
   )
