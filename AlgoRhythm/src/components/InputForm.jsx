@@ -8,6 +8,7 @@ export default function InputForm() {
         formState: {errors},
     } = useForm({})
   return (
+    <>
     <form
     onSubmit={handleSubmit(data => {
         console.log(data)
@@ -55,8 +56,28 @@ export default function InputForm() {
     <p>{errors.skill?.message}</p>
     <input type="submit" />
 
-
-{/* contract name, role name, skills needed - dropdown */}
     </form>
+    <form
+    onSubmit={handleSubmit(data => {
+        console.log(data)
+    })}
+    >
+    <select
+    {...register("skillFind", {required: "please select a skill to search"})}
+    >
+    <option value="">Skill To Search</option>
+    <option value="JavaScript">JavaScript</option>
+    <option value="TypeScript">TypeScript</option>
+    <option value="AWS">AWS</option>
+    <option value="PostGreSQL">PostGreSQL</option>
+
+    </select>
+    <p>{errors.skillFind?.message}</p>
+    <input type="submit" />
+        
+    </form>
+    </>
+
+
   )
 }
